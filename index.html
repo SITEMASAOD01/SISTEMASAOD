@@ -55,125 +55,263 @@
      //FORZAR A RECONOCER ARCHIVO //
     <!-- Sección menú/carta -->
     <div id="section-menu" class="section">
-      <h2>🍽️ MENÚ FRUCAMTO</h2>
-      <!-- ====== DESAYUNOS ESPECIALES ====== -->
-      <div class="menu-categoria">
-        <div class="categoria-titulo">🌅 DESAYUNOS ESPECIALES</div>
-        <div class="productos-grid">
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?fit=crop&w=400&q=80" class="plato-img" alt="Dos Huevos Fritos/Tocino/Dos Panes/Jugo">
-            <div class="producto-nombre">Dos Huevos Fritos/Tocino/Dos Panes/Jugo</div>
-            <div class="producto-precio">S/. 15.00</div>
-            <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Dos Huevos Fritos/Tocino/Dos Panes/Jugo', 15)">Pedir</button>
-          </div>
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Pan con Palta y Café">
-            <div class="producto-nombre">Pan con Palta y Café</div>
-            <div class="producto-precio">S/. 10.00</div>
-            <div class="producto-credicambios">Ganarías: 1.0 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Pan con Palta y Café', 10)">Pedir</button>
-          </div>
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?fit=crop&w=400&q=80" class="plato-img" alt="Tostadas Francesas/Jugo">
-            <div class="producto-nombre">Tostadas Francesas/Jugo</div>
-            <div class="producto-precio">S/. 12.00</div>
-            <div class="producto-credicambios">Ganarías: 1.2 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Tostadas Francesas/Jugo', 12)">Pedir</button>
-          </div>
-        </div>
+  <h2>🍽️ MENÚ FRUCAMTO</h2>
+
+  <!-- BEBIDAS CALIENTES -->
+  <div class="menu-categoria">
+    <div class="categoria-titulo">☕ BEBIDAS CALIENTES</div>
+    <div class="productos-grid">
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Café Pasado">
+        <div class="producto-nombre">Café Pasado</div>
+        <div class="producto-precio">S/. 5.80</div>
+        <div class="producto-credicambios">Ganarías: 0.6 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Café Pasado', 5.80)">Pedir</button>
       </div>
-      <!-- SANDWICHES Y PANES -->
-      <div class="menu-categoria">
-        <div class="categoria-titulo">🥪 SANDWICHES Y PANES</div>
-        <div class="productos-grid">
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Sandwich de Pollo">
-            <div class="producto-nombre">Sandwich de Pollo</div>
-            <div class="producto-precio">S/. 9.00</div>
-            <div class="producto-credicambios">Ganarías: 0.9 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Sandwich de Pollo', 9)">Pedir</button>
-          </div>
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?fit=crop&w=400&q=80" class="plato-img" alt="Pan con Chicharrón">
-            <div class="producto-nombre">Pan con Chicharrón</div>
-            <div class="producto-precio">S/. 10.00</div>
-            <div class="producto-credicambios">Ganarías: 1.0 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Pan con Chicharrón', 10)">Pedir</button>
-          </div>
-        </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Café Americano">
+        <div class="producto-nombre">Café Americano</div>
+        <div class="producto-precio">S/. 6.50</div>
+        <div class="producto-credicambios">Ganarías: 0.7 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Café Americano', 6.50)">Pedir</button>
       </div>
-      <!-- JUGOS Y CAFÉS -->
-      <div class="menu-categoria">
-        <div class="categoria-titulo">🥤 JUGOS Y CAFÉS</div>
-        <div class="productos-grid">
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?fit=crop&w=400&q=80" class="plato-img" alt="Jugo de Naranja">
-            <div class="producto-nombre">Jugo de Naranja</div>
-            <div class="producto-precio">S/. 7.00</div>
-            <div class="producto-credicambios">Ganarías: 0.7 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Jugo de Naranja', 7)">Pedir</button>
-          </div>
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Café Americano">
-            <div class="producto-nombre">Café Americano</div>
-            <div class="producto-precio">S/. 6.00</div>
-            <div class="producto-credicambios">Ganarías: 0.6 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Café Americano', 6)">Pedir</button>
-          </div>
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Café Latte">
-            <div class="producto-nombre">Café Latte</div>
-            <div class="producto-precio">S/. 8.00</div>
-            <div class="producto-credicambios">Ganarías: 0.8 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Café Latte', 8)">Pedir</button>
-          </div>
-        </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Café Express">
+        <div class="producto-nombre">Café Express</div>
+        <div class="producto-precio">S/. 6.70</div>
+        <div class="producto-credicambios">Ganarías: 0.7 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Café Express', 6.70)">Pedir</button>
       </div>
-      <!-- ENSALADAS Y FRUTAS -->
-      <div class="menu-categoria">
-        <div class="categoria-titulo">🥗 ENSALADAS Y FRUTAS</div>
-        <div class="productos-grid">
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?fit=crop&w=400&q=80" class="plato-img" alt="Ensalada de Frutas">
-            <div class="producto-nombre">Ensalada de Frutas</div>
-            <div class="producto-precio">S/. 11.00</div>
-            <div class="producto-credicambios">Ganarías: 1.1 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Ensalada de Frutas', 11)">Pedir</button>
-          </div>
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?fit=crop&w=400&q=80" class="plato-img" alt="Yogurt con Granola">
-            <div class="producto-nombre">Yogurt con Granola</div>
-            <div class="producto-precio">S/. 8.00</div>
-            <div class="producto-credicambios">Ganarías: 0.8 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Yogurt con Granola', 8)">Pedir</button>
-          </div>
-        </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?fit=crop&w=400&q=80" class="plato-img" alt="Manzanilla">
+        <div class="producto-nombre">Manzanilla</div>
+        <div class="producto-precio">S/. 3.50</div>
+        <div class="producto-credicambios">Ganarías: 0.3 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Manzanilla', 3.50)">Pedir</button>
       </div>
-      <!-- ALMUERZOS -->
-      <div class="menu-categoria">
-        <div class="categoria-titulo">🍛 ALMUERZOS</div>
-        <div class="productos-grid">
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?fit=crop&w=400&q=80" class="plato-img" alt="Arroz con Pollo">
-            <div class="producto-nombre">Arroz con Pollo</div>
-            <div class="producto-precio">S/. 18.00</div>
-            <div class="producto-credicambios">Ganarías: 1.8 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Arroz con Pollo', 18)">Pedir</button>
-          </div>
-          <div class="producto">
-            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Lomo Saltado">
-            <div class="producto-nombre">Lomo Saltado</div>
-            <div class="producto-precio">S/. 20.00</div>
-            <div class="producto-credicambios">Ganarías: 2.0 CREDICAMBIOS</div>
-            <button class="btn btn-green" onclick="pedirPlato('Lomo Saltado', 20)">Pedir</button>
-          </div>
-        </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?fit=crop&w=400&q=80" class="plato-img" alt="Té">
+        <div class="producto-nombre">Té</div>
+        <div class="producto-precio">S/. 3.50</div>
+        <div class="producto-credicambios">Ganarías: 0.3 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Té', 3.50)">Pedir</button>
       </div>
-      <div style="text-align:center; margin-top:30px;">
-        <button class="btn btn-green" onclick="salirCliente()">← Volver al Menú Principal</button>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?fit=crop&w=400&q=80" class="plato-img" alt="Hierba Luisa">
+        <div class="producto-nombre">Hierba Luisa</div>
+        <div class="producto-precio">S/. 3.50</div>
+        <div class="producto-credicambios">Ganarías: 0.3 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Hierba Luisa', 3.50)">Pedir</button>
       </div>
     </div>
+  </div>
+
+  <!-- JUGOS -->
+  <div class="menu-categoria">
+    <div class="categoria-titulo">🥤 JUGOS</div>
+    <div class="productos-grid">
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Papaya">
+        <div class="producto-nombre">Papaya</div>
+        <div class="producto-precio">S/. 7.00</div>
+        <div class="producto-credicambios">Ganarías: 0.7 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo de Papaya', 7)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Surtido">
+        <div class="producto-nombre">Surtido</div>
+        <div class="producto-precio">S/. 8.00</div>
+        <div class="producto-credicambios">Ganarías: 0.8 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo Surtido', 8)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Fresa">
+        <div class="producto-nombre">Fresa</div>
+        <div class="producto-precio">S/. 8.00</div>
+        <div class="producto-credicambios">Ganarías: 0.8 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo de Fresa', 8)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Piña">
+        <div class="producto-nombre">Piña</div>
+        <div class="producto-precio">S/. 7.00</div>
+        <div class="producto-credicambios">Ganarías: 0.7 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo de Piña', 7)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Naranja">
+        <div class="producto-nombre">Naranja</div>
+        <div class="producto-precio">S/. 8.00</div>
+        <div class="producto-credicambios">Ganarías: 0.8 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo de Naranja', 8)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Melón">
+        <div class="producto-nombre">Melón</div>
+        <div class="producto-precio">S/. 8.00</div>
+        <div class="producto-credicambios">Ganarías: 0.8 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo de Melón', 8)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Arándano">
+        <div class="producto-nombre">Arándano</div>
+        <div class="producto-precio">S/. 9.00</div>
+        <div class="producto-credicambios">Ganarías: 0.9 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo de Arándano', 9)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?fit=crop&w=400&q=80" class="plato-img" alt="Maracuyá">
+        <div class="producto-nombre">Maracuyá</div>
+        <div class="producto-precio">S/. 7.00</div>
+        <div class="producto-credicambios">Ganarías: 0.7 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Jugo de Maracuyá', 7)">Pedir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESPECIALES -->
+  <div class="menu-categoria">
+    <div class="categoria-titulo">🍓 ESPECIALES</div>
+    <div class="productos-grid">
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?fit=crop&w=400&q=80" class="plato-img" alt="Fresa C/N Leche">
+        <div class="producto-nombre">Fresa C/N Leche</div>
+        <div class="producto-precio">S/. 9.00</div>
+        <div class="producto-credicambios">Ganarías: 0.9 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Fresa C/N Leche', 9)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?fit=crop&w=400&q=80" class="plato-img" alt="Especial">
+        <div class="producto-nombre">Especial</div>
+        <div class="producto-precio">S/. 12.00</div>
+        <div class="producto-credicambios">Ganarías: 1.2 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Especial', 12)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?fit=crop&w=400&q=80" class="plato-img" alt="Papaya C/N Leche">
+        <div class="producto-nombre">Papaya C/N Leche</div>
+        <div class="producto-precio">S/. 11.00</div>
+        <div class="producto-credicambios">Ganarías: 1.1 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Papaya C/N Leche', 11)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?fit=crop&w=400&q=80" class="plato-img" alt="Arándano C/N Leche">
+        <div class="producto-nombre">Arándano C/N Leche</div>
+        <div class="producto-precio">S/. 11.00</div>
+        <div class="producto-credicambios">Ganarías: 1.1 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Arándano C/N Leche', 11)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?fit=crop&w=400&q=80" class="plato-img" alt="Refrescante de Coco CT">
+        <div class="producto-nombre">Refrescante de Coco CT</div>
+        <div class="producto-precio">S/. 12.00</div>
+        <div class="producto-credicambios">Ganarías: 1.2 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Refrescante de Coco CT', 12)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?fit=crop&w=400&q=80" class="plato-img" alt="Ensalada de Frutas">
+        <div class="producto-nombre">Ensalada de Frutas</div>
+        <div class="producto-precio">S/. 14.00</div>
+        <div class="producto-credicambios">Ganarías: 1.4 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Ensalada de Frutas', 14)">Pedir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALMUERZOS TAYPÁ -->
+  <div class="menu-categoria">
+    <div class="categoria-titulo">🥘 ALMUERZOS TAYPÁ</div>
+    <div class="productos-grid">
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?fit=crop&w=400&q=80" class="plato-img" alt="Combo Criollo">
+        <div class="producto-nombre">Combo Criollo (Plato 1)</div>
+        <div class="producto-precio">S/. 15.00</div>
+        <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Combo Criollo', 15)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?fit=crop&w=400&q=80" class="plato-img" alt="Frescura Andina">
+        <div class="producto-nombre">Frescura Andina (Plato 2)</div>
+        <div class="producto-precio">S/. 15.00</div>
+        <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Frescura Andina', 15)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?fit=crop&w=400&q=80" class="plato-img" alt="Sabor Tradicional">
+        <div class="producto-nombre">Sabor Tradicional (Plato 3)</div>
+        <div class="producto-precio">S/. 15.00</div>
+        <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Sabor Tradicional', 15)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Lomo en su Punto">
+        <div class="producto-nombre">Lomo en su Punto (Plato 4)</div>
+        <div class="producto-precio">S/. 15.00</div>
+        <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Lomo en su Punto', 15)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Saltado de la Casa">
+        <div class="producto-nombre">Saltado de la Casa (Plato 5)</div>
+        <div class="producto-precio">S/. 15.00</div>
+        <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Saltado de la Casa', 15)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Tallarines a Tu Estilo">
+        <div class="producto-nombre">Tallarines a Tu Estilo (Plato 6)</div>
+        <div class="producto-precio">S/. 15.00</div>
+        <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Tallarines a Tu Estilo', 15)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Saltado FRUCAMTO">
+        <div class="producto-nombre">Saltado FRUCAMTO</div>
+        <div class="producto-precio">S/. 18.00</div>
+        <div class="producto-credicambios">Ganarías: 1.8 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Saltado FRUCAMTO', 18)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Estilo Taypá">
+        <div class="producto-nombre">Estilo Taypá</div>
+        <div class="producto-precio">S/. 17.00</div>
+        <div class="producto-credicambios">Ganarías: 1.7 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Estilo Taypá', 17)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Crocanpollo Irresistible">
+        <div class="producto-nombre">Crocanpollo Irresistible</div>
+        <div class="producto-precio">S/. 17.00</div>
+        <div class="producto-credicambios">Ganarías: 1.7 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Crocanpollo Irresistible', 17)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Pollo a la Napolitana">
+        <div class="producto-nombre">Pollo a la Napolitana</div>
+        <div class="producto-precio">S/. 25.00</div>
+        <div class="producto-credicambios">Ganarías: 2.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Pollo a la Napolitana', 25)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Huancaina Clásica">
+        <div class="producto-nombre">Huancaina Clásica</div>
+        <div class="producto-precio">S/. 25.00</div>
+        <div class="producto-credicambios">Ganarías: 2.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Huancaina Clásica', 25)">Pedir</button>
+      </div>
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?fit=crop&w=400&q=80" class="plato-img" alt="Chuleta Tradicional">
+        <div class="producto-nombre">Chuleta Tradicional</div>
+        <div class="producto-precio">S/. 15.00</div>
+        <div class="producto-credicambios">Ganarías: 1.5 CREDICAMBIOS</div>
+        <button class="btn btn-green" onclick="pedirPlato('Chuleta Tradicional', 15)">Pedir</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:30px;">
+    <button class="btn btn-green" onclick="salirCliente()">← Volver al Menú Principal</button>
+  </div>
+</div>
 
     <!-- Sección registro de cliente nuevo -->
     <div id="section-registro" class="section">
