@@ -401,7 +401,7 @@ function salirCliente() {
   if (document.getElementById('info-puntos')) document.getElementById('info-puntos').innerHTML = '';
   mostrarSeccion('bienvenida');
 }
-
+4
 
 function mostrarModalReporte(html) {
   document.getElementById('modal-body').innerHTML = html;
@@ -577,7 +577,7 @@ function abrirModalCanjeCredicambios(credicambiosTotales, totalPedido) {
   document.getElementById('modal-body').innerHTML = html;
 }
 
-function realizarCanjeCredicambios(credicambiosTotales, totalPedido) {
+async function realizarCanjeCredicambios(credicambiosTotales, totalPedido) {
   let aCanjear = parseFloat(document.getElementById('canje-cantidad').value);
   if (isNaN(aCanjear) || aCanjear < 0 || aCanjear > credicambiosTotales) {
     alert("Cantidad no válida o mayor que tus credicambios.");
@@ -586,6 +586,22 @@ function realizarCanjeCredicambios(credicambiosTotales, totalPedido) {
   let descuento = calcularValorCredicambiosPorCanje(aCanjear, nivelClienteActual);
   let nuevoTotal = (totalPedido - descuento).toFixed(2);
   let saldoFinal = credicambiosTotales - aCanjear;
+
+  // ENVÍA el canje al backend para actualizar el saldo real
+  try {
+    const res = await fetch(`${API_HOST}/api/canje`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dni: dniCliente, cantidadCanjeada: aCanjear })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      saldoFinal = data.nuevoSaldo;
+    }
+  } catch (e) {
+    // Si falla, muestra el saldo calculado de frontend
+  }
+
   let resumen = `
     <div style="font-size:1.25em;margin-bottom:18px;">
       <b>Descuento aplicado:</b> S/.${descuento}<br>
