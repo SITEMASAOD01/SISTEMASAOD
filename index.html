@@ -613,6 +613,8 @@ async function realizarCanjeCredicambios(credicambiosTotales, totalPedido) {
   document.getElementById('modal-body').innerHTML = resumen;
 }
 
+
+
 async function consultarReniec() {
   let dni = document.getElementById('reg-dni').value.trim();
   if (!dni || dni.length !== 8) return alert('DNI inválido');
