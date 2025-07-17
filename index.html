@@ -15,13 +15,6 @@
     .btn-cancel { background: #6b7280; color: white;}
     .btn-print { background: linear-gradient(135deg,#007bff,#00e0ff); color: #fff; font-weight:bold; }
     .info-box { background: #f0f9ff; padding: 20px; border-radius: 10px; margin: 25px auto; max-width: 460px;}
-    table { border-collapse: collapse; width: 100%; margin-top: 12px; box-shadow: 0 2px 14px #c2d1d9; }
-    th, td { border: 1px solid #b2bec3; padding: 10px; }
-    th { background: linear-gradient(135deg,#22c55e 60%,#FFD600 100%); color: #333; font-size:1.08em;}
-    tr:nth-child(even) { background: #f9fbe7; }
-    tr:nth-child(odd) { background: #fff; }
-    tr:hover { background: #e3fcec; }
-    .input-dni { padding:15px; font-size:1.2em; border:2px solid #22c55e; border-radius:10px; width:250px; text-align:center; }
     .menu-categoria { margin-bottom: 25px;}
     .categoria-titulo { background: #ea580c; color: #fff; padding: 16px; border-radius: 10px; font-size: 1.18em; text-align:left; margin-bottom:8px; letter-spacing:1px;}
     .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 18px;}
@@ -43,7 +36,6 @@
 </head>
 <body>
   <div class="container">
-
     <!-- SECCIÓN BIENVENIDA -->
     <div id="section-bienvenida" class="section active">
       <div style="display:flex; align-items:center; margin-bottom: 16px;">
@@ -68,37 +60,20 @@
         </button>
       </div>
     </div>
-
      <!-- SECCIÓN CONSULTA DE PUNTOS -->
-<div id="section-puntos" class="section">
-  <h2 style="font-size:2.2em; color:#16a34a; margin-top:0;">🔍 Consultar CREDICAMBIOS</h2>
-  <div style="text-align:center; margin-bottom:22px;">
-    <input id="input-dni" class="input-dni" style="font-size:1.3em; width:300px;" placeholder="DNI (8 dígitos)" maxlength="8" pattern="[0-9]{8}">
-    <button class="btn btn-green" style="font-size:1.15em; height:54px; margin-left:12px;" onclick="consultarPuntos()">CONSULTAR</button>
-    <button class="btn btn-orange" style="font-size:1.15em; height:54px;" onclick="mostrarSeccion('registro')">🆕 Cliente Nuevo</button>
-    <button class="btn btn-cancel" style="height:54px;" onclick="salirCliente()">← Volver</button>
-  </div>
-  <div id="info-puntos"></div>
-</div>
-
-<!-- SECCIÓN REGISTRO DE CLIENTE NUEVO -->
-<div id="section-registro" class="section">
-  <h2>🆕 Registro de Cliente Nuevo</h2>
-  <div style="max-width:350px;margin:auto;">
-    <input id="reg-dni" class="input-dni" placeholder="DNI (8 dígitos)" maxlength="8"><br>
-    <button class="btn btn-green" onclick="consultarReniec()">Consultar RENIEC</button>
-    <br>
-    <input id="reg-nombre" class="input-dni" placeholder="Nombre completo"><br>
-    <input id="reg-direccion" class="input-dni" placeholder="Dirección"><br>
-    <input id="reg-telefono" class="input-dni" placeholder="Teléfono"><br>
-    <button class="btn btn-orange" onclick="registrarCliente()">Registrar y entrar al mundo SAOD</button>
-    <button class="btn btn-cancel" onclick="salirCliente()">← Volver</button>
-    <div id="reg-msg" style="margin-top:10px;"></div>
-  </div>
-</div>
+    <div id="section-puntos" class="section">
+      <h2>🔍 Consultar CREDICAMBIOS</h2>
+      <div style="text-align:center;">
+        <input id="input-dni" class="input-dni" placeholder="DNI (8 dígitos)" maxlength="8" pattern="[0-9]{8}">
+        <button class="btn btn-green" onclick="consultarPuntos()">CONSULTAR</button>
+        <button class="btn btn-orange" onclick="mostrarSeccion('registro')">🆕 Cliente Nuevo</button>
+        <button class="btn btn-cancel" onclick="salirCliente()">← Volver</button>
+      </div>
+      <div id="info-puntos"></div>
+    </div>
 
 
-<!-- SECCIÓN MENÚ INTERACTIVO (CARTA COMPLETA) -->
+      <!-- SECCIÓN MENÚ INTERACTIVO (CARTA COMPLETA) -->
     <div id="section-menu" class="section">
       <h2>🍽️ MENÚ FRUCAMTO</h2>
       <!-- BEBIDAS CALIENTES -->
@@ -358,7 +333,6 @@
       </div> 
       </div>
 
-
     <!-- ...carta, registro, modal visual, etc... -->
         <!-- MODAL VISUAL PARA REPORTES Y RESUMENES -->
     <div id="modal-visual" style="display:none; position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.26);z-index:9999;align-items:center;justify-content:center;">
@@ -367,7 +341,6 @@
         <div id="modal-body"></div>
       </div>
     </div>
-
 
 <script>
 const API_HOST = "https://saod-backend.fly.dev";
@@ -381,10 +354,9 @@ let dniCliente = '';
 
 function mostrarSeccion(seccion) {
   document.querySelectorAll('.section').forEach(d => d.classList.remove('active'));
-  const s = document.getElementById(`section-${seccion}`);
-  if (s) s.classList.add('active');
-  if(seccion === 'puntos' && document.getElementById('info-puntos')) document.getElementById('info-puntos').innerHTML = '';
-  if(seccion === 'registro' && document.getElementById('reg-msg')) {
+  document.getElementById(`section-${seccion}`).classList.add('active');
+  if(seccion === 'puntos') document.getElementById('info-puntos').innerHTML = '';
+  if(seccion === 'registro') {
     document.getElementById('reg-msg').innerHTML = '';
     document.getElementById('reg-dni').value = '';
     document.getElementById('reg-nombre').value = '';
@@ -392,19 +364,6 @@ function mostrarSeccion(seccion) {
     document.getElementById('reg-telefono').value = '';
   }
 }
-
-function salirCliente() {
-  carrito = [];
-  totalPedido = 0;
-  credicambiosGanados = 0;
-  nivelClienteActual = '';
-  nombreClienteActual = '';
-  dniCliente = '';
-  if (document.getElementById('input-dni')) document.getElementById('input-dni').value = '';
-  if (document.getElementById('info-puntos')) document.getElementById('info-puntos').innerHTML = '';
-  mostrarSeccion('bienvenida');
-}
-4
 
 function mostrarModalReporte(html) {
   document.getElementById('modal-body').innerHTML = html;
@@ -442,7 +401,10 @@ async function obtenerDatosCliente(dni) {
 
 async function consultarPuntos() {
   let dni = document.getElementById('input-dni').value.trim();
-  if (!dni || dni.length !== 8) return alert('Ingrese un DNI válido de 8 dígitos');
+  if (!dni || dni.length !== 8) {
+    alert('Ingrese un DNI válido de 8 dígitos');
+    return;
+  }
   try {
     let res = await fetch(`${API_HOST}/api/cliente/${dni}`);
     let data = await res.json();
@@ -476,7 +438,6 @@ async function consultarPuntos() {
   }
 }
 
-// Pedido y acumulación
 function pedirPlato(nombre, precio) {
   if (!dniCliente || dniCliente.length !== 8) {
     alert("Primero consulta tus puntos e ingresa tu DNI válido.");
@@ -523,7 +484,40 @@ function pedirPlato(nombre, precio) {
   }
 }
 
-// Resumen final visual
+function abrirModalCanjeCredicambios(credicambiosTotales, totalPedido) {
+  let html = `
+    <h2 style="color:#ea580c;">Canjear Credicambios</h2>
+    <div style="font-size:1.2em; margin-bottom:12px;">
+      Credicambios disponibles: <b>${credicambiosTotales}</b><br>
+      Total pedido: <b>S/.${totalPedido.toFixed(2)}</b>
+    </div>
+    <input id="canje-cantidad" type="number" min="0" max="${credicambiosTotales}" value="0" style="font-size:1.1em;width:110px;padding:5px;">
+    <button class="modal-btn green" onclick="realizarCanjeCredicambios(${credicambiosTotales},${totalPedido})">Aplicar Canje</button>
+    <button class="modal-btn cancel" onclick="cerrarModalVisual();resetCarrito();">Cancelar y Finalizar</button>
+  `;
+  document.getElementById('modal-body').innerHTML = html;
+}
+
+function realizarCanjeCredicambios(credicambiosTotales, totalPedido) {
+  let aCanjear = parseFloat(document.getElementById('canje-cantidad').value);
+  if (isNaN(aCanjear) || aCanjear < 0 || aCanjear > credicambiosTotales) {
+    alert("Cantidad no válida o mayor que tus credicambios.");
+    return;
+  }
+  let descuento = calcularValorCredicambiosPorCanje(aCanjear, nivelClienteActual);
+  let nuevoTotal = (totalPedido - descuento).toFixed(2);
+  let saldoFinal = credicambiosTotales - aCanjear;
+  let resumen = `
+    <div style="font-size:1.25em;margin-bottom:18px;">
+      <b>Descuento aplicado:</b> S/.${descuento}<br>
+      <b>Nuevo total a pagar:</b> S/.${nuevoTotal}<br>
+      <b>Saldo de credicambios después del canje:</b> ${saldoFinal}
+    </div>
+    <button class="modal-btn green" onclick="cerrarModalVisual();resetCarrito();">Finalizar</button>
+  `;
+  document.getElementById('modal-body').innerHTML = resumen;
+}
+
 async function mostrarResumenPedidoFinal() {
   const cliente = await obtenerDatosCliente(dniCliente);
   if (!cliente) {
@@ -532,7 +526,8 @@ async function mostrarResumenPedidoFinal() {
   }
   let credicambiosTotales = parseFloat(cliente.credicambios) || 0;
   let credicambiosEnEstePedido = credicambiosGanados;
-  let valorCredi = calcularValorCredicambio(cliente, credicambiosTotales);
+  let credicambiosTotalesIncluyendoEste = credicambiosTotales;
+  let valorCredi = calcularValorCredicambio(cliente, credicambiosTotalesIncluyendoEste);
   let html = `
     <div style="background: #f9fbe7; border-radius:14px; padding:30px; max-width:600px; margin:40px auto; box-shadow:0 3px 18px #b2bec3;">
       <h2 style="font-size:2em; color:#16a34a;">Resumen Final de tu Pedido</h2>
@@ -542,11 +537,11 @@ async function mostrarResumenPedidoFinal() {
         <b>Importe total del pedido:</b> <span style="color:#ea580c;">S/.${totalPedido.toFixed(2)}</span><br>
         <b>Credicambios ganados en este pedido:</b> <span style="color:#22c55e;">${credicambiosEnEstePedido}</span><br>
         <b>Credicambios acumulados en este pedido:</b> <span style="color:#22c55e;">${credicambiosEnEstePedido}</span><br>
-        <b>Total credicambios hasta la fecha:</b> <span style="color:#FFD600;">${credicambiosTotales}</span><br>
-        <b>Valor credicambios:</b> <span style="color:#FFD600;">S/.${valorCredi}</span>
+        <b>Total credicambios hasta la fecha:</b> <span style="color:#FFD600;">${credicambiosTotalesIncluyendoEste}</span><br>
+        <b>Valor credicambios:</b> <span style="color:#FFD600;">S/.${valorCredi}</span><br>
       </div>
       <div style="margin-top:18px;">
-        <button class="modal-btn orange" onclick="abrirModalCanjeCredicambios(${credicambiosTotales},${totalPedido})">Canjear credicambios</button>
+        <button class="modal-btn orange" onclick="abrirModalCanjeCredicambios(${credicambiosTotalesIncluyendoEste},${totalPedido})">Canjear credicambios</button>
         <button class="modal-btn green" onclick="cerrarModalVisual();resetCarrito();">Finalizar</button>
       </div>
     </div>
@@ -565,58 +560,6 @@ function resetCarrito() {
   document.getElementById('info-puntos').innerHTML = '';
   mostrarSeccion('bienvenida');
 }
-
-function abrirModalCanjeCredicambios(credicambiosTotales, totalPedido) {
-  let html = `
-    <h2 style="color:#ea580c;">Canjear Credicambios</h2>
-    <div style="font-size:1.2em; margin-bottom:12px;">
-      Credicambios disponibles: <b>${credicambiosTotales}</b><br>
-      Total pedido: <b>S/.${totalPedido.toFixed(2)}</b>
-    </div>
-    <input id="canje-cantidad" type="number" min="0" max="${credicambiosTotales}" value="0" style="font-size:1.1em;width:110px;padding:5px;">
-    <button class="modal-btn green" onclick="realizarCanjeCredicambios(${credicambiosTotales},${totalPedido})">Aplicar Canje</button>
-    <button class="modal-btn cancel" onclick="cerrarModalVisual();resetCarrito();">Cancelar y Finalizar</button>
-  `;
-  document.getElementById('modal-body').innerHTML = html;
-}
-
-async function realizarCanjeCredicambios(credicambiosTotales, totalPedido) {
-  let aCanjear = parseFloat(document.getElementById('canje-cantidad').value);
-  if (isNaN(aCanjear) || aCanjear < 0 || aCanjear > credicambiosTotales) {
-    alert("Cantidad no válida o mayor que tus credicambios.");
-    return;
-  }
-  let descuento = calcularValorCredicambiosPorCanje(aCanjear, nivelClienteActual);
-  let nuevoTotal = (totalPedido - descuento).toFixed(2);
-  let saldoFinal = credicambiosTotales - aCanjear;
-
-  // ENVÍA el canje al backend para actualizar el saldo real
-  try {
-    const res = await fetch(`${API_HOST}/api/canje`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ dni: dniCliente, cantidadCanjeada: aCanjear })
-    });
-    const data = await res.json();
-    if (data.ok) {
-      saldoFinal = data.nuevoSaldo;
-    }
-  } catch (e) {
-    // Si falla, muestra el saldo calculado de frontend
-  }
-
-  let resumen = `
-    <div style="font-size:1.25em;margin-bottom:18px;">
-      <b>Descuento aplicado:</b> S/.${descuento}<br>
-      <b>Nuevo total a pagar:</b> S/.${nuevoTotal}<br>
-      <b>Saldo de credicambios después del canje:</b> ${saldoFinal}
-    </div>
-    <button class="modal-btn green" onclick="cerrarModalVisual();resetCarrito();">Finalizar</button>
-  `;
-  document.getElementById('modal-body').innerHTML = resumen;
-}
-
-
 
 async function consultarReniec() {
   let dni = document.getElementById('reg-dni').value.trim();
@@ -665,21 +608,19 @@ async function registrarCliente() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if(document.getElementById('input-dni')) {
-    document.getElementById('input-dni').addEventListener('input', function() {
-      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8);
-    });
-  }
-  if(document.getElementById('reg-dni')) {
-    document.getElementById('reg-dni').addEventListener('input', function() {
-      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8);
-    });
-  }
+  mostrarSeccion('bienvenida');
+  document.getElementById('input-dni').addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8);
+  });
+  document.getElementById('reg-dni').addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8);
+  });
 });
-
 </script>
 </body>
 </html>
+
+
 
 
 
