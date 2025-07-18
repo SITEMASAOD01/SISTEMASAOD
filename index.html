@@ -498,25 +498,21 @@ function pedirPlato(nombre, precio) {
       try {
         data = await res.json();
       } catch (e) {
-        throw new Error('No se pudo leer respuesta JSON');
+        alert('No se pudo procesar la respuesta del servidor');
+        return;
       }
-
-      // Debug: muestra la respuesta siempre
+      // Debug
       console.log('Respuesta backend:', data);
-
-      // Manejo robusto de errores HTTP
       if (!res.ok) {
         alert(data.error || 'Ocurrió un error al registrar la compra.');
         return;
       }
-
-      // Manejo robusto de éxito
       if (data.ok) {
         totalPedido += precio;
         credicambiosGanados += data.credicambios_ganados || 0;
         carrito.push({ nombre, precio, credicambios: data.credicambios_ganados || 0 });
-        nivelClienteActual = data.nivel || data.nivel_cliente || '';
-        nombreClienteActual = data.nombre || data.nombre_cliente || '';
+        nivelClienteActual = data.nivel || '';
+        nombreClienteActual = data.nombre || '';
         mostrarModalReporte(`
           <div style="text-align:left;">
             <h3 style="color:#16a34a;">Pedido registrado</h3>
@@ -535,14 +531,9 @@ function pedirPlato(nombre, precio) {
         alert(data.error || 'Ocurrió un error al registrar la compra.');
       }
     })
-    .catch(err => {
-      console.error('Error de red/fetch:', err);
-      alert('Error de conexión al servidor');
-    });
+    .catch(() => alert('Error de conexión al servidor'));
   }
 }
-
-
 
 // Resumen final visual
 async function mostrarResumenPedidoFinal() {
