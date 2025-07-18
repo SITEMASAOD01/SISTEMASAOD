@@ -493,21 +493,36 @@ function pedirPlato(nombre, precio) {
         descripcion: nombre
       })
     })
+    .then(async res => {
+      let data;
+      try {
+        data = await res.json();
+      } catch (e) {
+        throw new Error('No se pudo leer respuesta JSON');
+      }
 
-    .then(res => res.json())
-    .then(data => {
-      if (data.credicambios_ganados !== undefined) {
+      // Debug: muestra la respuesta siempre
+      console.log('Respuesta backend:', data);
+
+      // Manejo robusto de errores HTTP
+      if (!res.ok) {
+        alert(data.error || 'Ocurrió un error al registrar la compra.');
+        return;
+      }
+
+      // Manejo robusto de éxito
+      if (data.ok) {
         totalPedido += precio;
-        credicambiosGanados += data.credicambios_ganados;
-        carrito.push({ nombre, precio, credicambios: data.credicambios_ganados });
-        nivelClienteActual = data.nivel_cliente || '';
-        nombreClienteActual = data.nombre_cliente || '';
+        credicambiosGanados += data.credicambios_ganados || 0;
+        carrito.push({ nombre, precio, credicambios: data.credicambios_ganados || 0 });
+        nivelClienteActual = data.nivel || data.nivel_cliente || '';
+        nombreClienteActual = data.nombre || data.nombre_cliente || '';
         mostrarModalReporte(`
           <div style="text-align:left;">
             <h3 style="color:#16a34a;">Pedido registrado</h3>
             <b>Producto:</b> ${nombre}<br>
             <b>Precio:</b> S/.${precio}<br>
-            <b>Credicambios ganados:</b> ${data.credicambios_ganados}<br>
+            <b>Credicambios ganados:</b> ${data.credicambios_ganados ?? 0}<br>
             <b>Total acumulado:</b> S/.${totalPedido.toFixed(2)}<br>
             <b>Nivel:</b> ${nivelClienteActual}
             <div style="margin-top:16px;text-align:center;">
@@ -520,9 +535,14 @@ function pedirPlato(nombre, precio) {
         alert(data.error || 'Ocurrió un error al registrar la compra.');
       }
     })
-    .catch(() => alert('Error de conexión al servidor'));
+    .catch(err => {
+      console.error('Error de red/fetch:', err);
+      alert('Error de conexión al servidor');
+    });
   }
 }
+
+
 
 // Resumen final visual
 async function mostrarResumenPedidoFinal() {
