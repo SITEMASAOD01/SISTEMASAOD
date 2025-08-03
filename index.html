@@ -378,6 +378,8 @@ let credicambiosGanados = 0;
 let nivelClienteActual = '';
 let nombreClienteActual = '';
 let dniCliente = '';
+let credicambiosTotales = 0; // <-- Agrega esto junto a tus otras variables globales
+
 
 function mostrarSeccion(seccion) {
   document.querySelectorAll('.section').forEach(d => d.classList.remove('active'));
@@ -513,6 +515,8 @@ function pedirPlato(nombre, precio) {
         carrito.push({ nombre, precio, credicambios: data.credicambios_ganados || 0 });
         nivelClienteActual = data.nivel || '';
         nombreClienteActual = data.nombre || '';
+        credicambiosTotales = data.total_credicambios || 0; // <--- NUEVO
+
         mostrarModalReporte(`
           <div style="text-align:left;">
             <h3 style="color:#16a34a;">Pedido registrado</h3>
@@ -549,13 +553,12 @@ async function mostrarResumenPedidoFinal() {
     <div style="background: #f9fbe7; border-radius:14px; padding:30px; max-width:600px; margin:40px auto; box-shadow:0 3px 18px #b2bec3;">
       <h2 style="font-size:2em; color:#16a34a;">Resumen Final de tu Pedido</h2>
       <div style="font-size:1.25em; color:#222; margin-bottom:12px;">
-        <b>Cliente:</b> ${cliente.nombre}<br>
-        <b>Nivel:</b> ${cliente.nivel}<br>
+        <b>Cliente:</b> ${nombreClienteActual}<br>
+        <b>Nivel:</b> ${nivelClienteActual}<br>
         <b>Importe total del pedido:</b> <span style="color:#ea580c;">S/.${totalPedido.toFixed(2)}</span><br>
-        <b>Credicambios ganados en este pedido:</b> <span style="color:#22c55e;">${credicambiosEnEstePedido}</span><br>
-        <b>Credicambios acumulados en este pedido:</b> <span style="color:#22c55e;">${credicambiosEnEstePedido}</span><br>
+        <b>Credicambios ganados en este pedido:</b> <span style="color:#22c55e;">${credicambiosGanados}</span><br>
         <b>Total credicambios hasta la fecha:</b> <span style="color:#FFD600;">${credicambiosTotales}</span><br>
-        <b>Valor credicambios:</b> <span style="color:#FFD600;">S/.${valorCredi}</span>
+        <b>Valor credicambios:</b> <span style="color:#FFD600;">S/.${calcularValorCredicambio({ nivel: nivelClienteActual }, credicambiosTotales)}</span>
       </div>
       <div style="margin-top:18px;">
         <button class="modal-btn orange" onclick="abrirModalCanjeCredicambios(${credicambiosTotales},${totalPedido})">Canjear credicambios</button>
